@@ -19,13 +19,13 @@ public:
 		cout << "\nEnter the location of the first ship:\n";
 		cout << "Input degrees between 0 and 180: ";
 		cin >> longDegrees;
-		cout << "Input degrees between 0 and 60: ";
+		cout << "Input minutes between 0 and 60: ";
 		cin >> longMinutes;
 		cout << "Input direction (N/S) : ";
 		cin >> longDirection;
 		cout << "Input degrees between 0 and 180: ";
 		cin >> latDegrees;
-		cout << "Input degrees between 0 and 60: ";
+		cout << "Input miutes between 0 and 60: ";
 		cin >> latMinutes;
 		cout << "Input direction (E/W) : ";
 		cin >> latDirection;
@@ -34,42 +34,48 @@ public:
 
 class Yacht {
 	Location location;
-	int number;
+	
 
 public:
-	int serial; //attribute
+	int number;
 
-	Yacht(int i) {
-		number == num;
-	}
-
-	void get_pos() {
+	void get_pos() { //this stores the yachts posistions as an object
 		location.getpos();
 	};
 
 	void display() {
 		cout << "\nThe ship serial number is :";
-		
+
 		cout << "\nand it's posistion is : " << location.latDegrees << "\xF8" << location.latMinutes << "'" << location.latDirection << " Latitude  " << location.longDegrees << "\xF8" << location.longMinutes << "'" << location.longDirection << " Longtitude";
 	};
+
+	Yacht (int num) {
+		number = num;
+	}
+
+	Yacht() {}
+
 };
 
 
 int main() {
-	Yacht stuff;
+	Yacht ship;
+
 
 	cout << "******************Ocean Race 2021-22******************\n\n";
-	
+
 	std::vector<Yacht*> Yachts;
 	for (int i = 0; i < 3; i++) {
 		cout << "\n*************************************";
-		Yachts.push_back(new Yacht(i+1));
-		stuff.get_pos();
+		Yachts.push_back(new Yacht(i + 1));
+		ship.get_pos();
 	}
 
-	/*for (int i = 0; i < 3; i++) {
-		stuff.display();
-	}*/
+	for (Yacht* yacht : Yachts) {
+		cout << yacht->number;
+		ship.display();
+	}
+
 }
 
 
