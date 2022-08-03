@@ -6,6 +6,8 @@ using std::cout;
 using std::cin;
 
 class Location {
+
+
 public:
 	int longDegrees;
 	float longMinutes;
@@ -14,6 +16,7 @@ public:
 	int latDegrees;
 	float latMinutes;
 	char latDirection;
+
 
 	void getpos() { // getting the input of the locations. using longitude and latitude
 		cout << "\nEnter the location of the first ship:\n";
@@ -34,32 +37,35 @@ public:
 
 class Yacht {
 	Location location;
-	
+
 
 public:
 	int number;
+
+	
 
 	void get_pos() { //this stores the yachts posistions as an object
 		location.getpos();
 	};
 
 	void display() {
-		cout << "\nThe ship serial number is :";
+		cout << "\nThe ship serial number is :" << number;
 
 		cout << "\nand it's posistion is : " << location.latDegrees << "\xF8" << location.latMinutes << "'" << location.latDirection << " Latitude  " << location.longDegrees << "\xF8" << location.longMinutes << "'" << location.longDirection << " Longtitude";
 	};
 
-	Yacht (int num) {
-		number = num;
-	}
-
-	Yacht() {}
+	Yacht(int num) {
+		this->number = num;
+	};
 
 };
 
 
+
 int main() {
-	Yacht ship;
+	
+
+
 
 
 	cout << "******************Ocean Race 2021-22******************\n\n";
@@ -68,14 +74,13 @@ int main() {
 	for (int i = 0; i < 3; i++) {
 		cout << "\n*************************************";
 		Yachts.push_back(new Yacht(i + 1));
-		ship.get_pos();
+		Yachts[i]->get_pos();
+
 	}
 
 	for (Yacht* yacht : Yachts) {
 		cout << yacht->number;
-		ship.display();
+		yacht->display();
 	}
 
 }
-
-
