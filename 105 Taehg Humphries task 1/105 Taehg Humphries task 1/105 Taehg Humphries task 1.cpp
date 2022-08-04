@@ -65,9 +65,6 @@ public:
 int main() {
 	
 
-
-
-
 	cout << "******************Ocean Race 2021-22******************\n\n";
 
 	std::vector<Yacht*> Yachts;
@@ -79,7 +76,6 @@ int main() {
 	}
 
 	for (Yacht* yacht : Yachts) {
-		cout << yacht->number;
 		yacht->display();
 	}
 
